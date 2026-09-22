@@ -7,28 +7,25 @@
 
             {{-- Success Icon --}}
             <div class="mb-4">
-                <div
-                    class="d-inline-flex align-items-center justify-content-center rounded-circle"
-                    style="width: 80px; height: 80px; background-color: var(--its-accent);"
-                >
-                    <i class="bi bi-check-circle-fill" style="font-size: 3rem; color: #28a745;"></i>
+                <div class="success-icon-bg">
+                    <i class="bi bi-check-circle-fill success-icon"></i>
                 </div>
             </div>
 
             {{-- Heading --}}
-            <h2 class="fw-bold mb-2" style="color: var(--its-blue);">
+            <h2 class="card-title-sf mb-2">
                 Feedback Berhasil Dikirim
             </h2>
 
-            <p class="text-muted mb-1">
+            <p class="mb-1" style="color: var(--sf-slate-500);">
                 Terima kasih atas masukan yang telah Anda berikan.
             </p>
-            <p class="text-muted mb-4">
-                Masukan Anda telah berhasil diterima oleh <strong>Secure Feedback Hub</strong>.
+            <p class="mb-4" style="color: var(--sf-slate-500);">
+                Masukan Anda telah berhasil diterima oleh sistem.
             </p>
 
             {{-- Back Button --}}
-            <a href="{{ route('feedback.form') }}" class="btn btn-its btn-lg">
+            <a href="{{ route('feedback.form') }}" class="btn btn-primary-sf btn-lg d-inline-flex align-items-center justify-content-center">
                 <i class="bi bi-arrow-left-circle me-2"></i>Kirim Feedback Lagi
             </a>
         </div>

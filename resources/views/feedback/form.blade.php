@@ -4,10 +4,10 @@
 <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6">
         <div class="card card-feedback p-4 p-md-5">
-            <h2 class="h5 fw-bold mb-1" style="color: var(--its-blue);">
-                <i class="bi bi-chat-square-text me-1"></i> Kirim Feedback
+            <h2 class="card-title-sf mb-1">
+                <i class="bi bi-envelope me-1"></i> Kirim Feedback
             </h2>
-            <p class="text-muted small mb-4">
+            <p class="mb-4" style="color: var(--sf-slate-500); font-size: 0.875rem;">
                 Sampaikan masukan, kritik, dan gagasan Anda untuk Teknik Informatika ITS.
             </p>
 
@@ -15,8 +15,8 @@
                 @csrf
 
                 {{-- Nama Mahasiswa --}}
-                <div class="mb-3">
-                    <label for="name" class="form-label fw-semibold">
+                <div class="mb-4">
+                    <label for="name" class="form-label">
                         Nama Mahasiswa <span class="text-danger">*</span>
                     </label>
                     <input
@@ -36,8 +36,8 @@
                 </div>
 
                 {{-- Email ITS --}}
-                <div class="mb-3">
-                    <label for="email" class="form-label fw-semibold">
+                <div class="mb-4">
+                    <label for="email" class="form-label">
                         Email ITS <span class="text-danger">*</span>
                     </label>
                     <input
@@ -57,8 +57,8 @@
                 </div>
 
                 {{-- Kategori Masukan --}}
-                <div class="mb-3">
-                    <label for="category" class="form-label fw-semibold">
+                <div class="mb-4">
+                    <label for="category" class="form-label">
                         Kategori Masukan <span class="text-danger">*</span>
                     </label>
                     <select
@@ -82,7 +82,7 @@
 
                 {{-- Isi Pesan --}}
                 <div class="mb-4">
-                    <label for="message" class="form-label fw-semibold">
+                    <label for="message" class="form-label">
                         Isi Pesan <span class="text-danger">*</span>
                     </label>
                     <textarea
@@ -101,10 +101,10 @@
 
                 {{-- Math Captcha --}}
                 <div class="captcha-box mb-4">
-                    <label for="captcha" class="form-label fw-semibold">
-                        <i class="bi bi-shield-check me-1" style="color: var(--its-blue);"></i>Verifikasi
+                    <label for="captcha" class="form-label mb-2 d-flex align-items-center">
+                        <i class="bi bi-shield-check me-2 fs-5"></i> Verifikasi
                     </label>
-                    <p class="mb-2 text-secondary">
+                    <p class="mb-3" style="color: var(--sf-slate-600); font-size: 0.875rem;">
                         Berapakah <strong>{{ $numberA }} + {{ $numberB }}</strong>?
                     </p>
                     <input
@@ -116,15 +116,15 @@
                         autocomplete="off"
                     >
                     @error('captcha')
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback mt-2">
                             <i class="bi bi-exclamation-triangle-fill me-1"></i>{{ $message }}
                         </div>
                     @enderror
                 </div>
 
                 {{-- Submit Button --}}
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-its btn-lg">
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary-sf btn-lg">
                         <i class="bi bi-send-fill me-2"></i>Kirim Feedback
                     </button>
                 </div>
