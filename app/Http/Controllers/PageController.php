@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -76,6 +77,8 @@ class PageController extends Controller
                 ->withErrors(['captcha' => 'Jawaban captcha salah.'])
                 ->withInput();
         }
+
+        Feedback::create($request->only(['name', 'email', 'category', 'message']));
 
         session()->forget('captcha_answer');
 

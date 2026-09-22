@@ -36,6 +36,104 @@ salah, beri pesan error kustom. Tantangan 2: Tampilan UI Modern dengan Bootstrap
 - Percantik halaman formulir umpan balik dan halaman respon sukses agar responsif dan nyaman dipandang,
 menerapkan estetika branding ITS.
 
+# Cara Menjalankan Project
+
+## Prasyarat
+
+Pastikan tools berikut sudah terinstal di sistem Anda:
+
+- PHP >= 8.2 (project dikembangkan dengan PHP 8.5)
+- Composer
+- Node.js & npm (untuk Vite)
+
+## Langkah Instalasi
+
+1. Clone / salin project ke direktori lokal Anda.
+
+2. Instal dependensi PHP:
+
+   ```bash
+   composer install
+   ```
+
+3. Buat file `.env` dari contoh yang tersedia:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Generate aplikasi key:
+
+   ```bash
+   php artisan key:generate
+   ```
+
+5. Buat file database SQLite kosong:
+
+   ```bash
+   touch database/database.sqlite
+   ```
+
+   Project sudah dikonfigurasi menggunakan SQLite (`DB_CONNECTION=sqlite` di `.env`) dan `SESSION_DRIVER=database`, sehingga sesi juga tersimpan di database.
+
+6. Jalankan migrasi untuk membuat tabel (`feedbacks`, `users`, `sessions`, dll.):
+
+   ```bash
+   php artisan migrate
+   ```
+
+7. Jalankan seeder untuk membuat akun admin login:
+
+   ```bash
+   php artisan db:seed
+   ```
+
+   Akun admin yang dibuat:
+
+   - Email: `admin@student.its.ac.id`
+   - Password: `rahasia123`
+
+8. Instal dependensi frontend (untuk Vite):
+
+   ```bash
+   npm install
+   ```
+
+## Menjalankan Aplikasi
+
+Jalankan development server Laravel:
+
+```bash
+php artisan serve
+```
+
+Aplikasi dapat diakses di `http://127.0.0.1:8000`.
+
+Jika halaman tidak menemukan asset (error Vite manifest), jalankan salah satu perintah berikut di terminal terpisah:
+
+```bash
+npm run dev       # watch mode (untuk pengembangan)
+# atau
+npm run build     # build static assets
+```
+
+## Halaman & Rute
+
+| Halaman                  | URL                | Keterangan                        |
+| ------------------------ | ------------------ | --------------------------------- |
+| Form Feedback            | `http://127.0.0.1:8000/` | Halaman utama untuk mengirim feedback |
+| Halaman Sukses           | `/feedback/success` | Muncul setelah feedback valid     |
+| Login Admin              | `/admin`           | Login admin (lihat kredensial di atas) |
+| Dashboard Admin          | `/admin/dashboard` | Daftar feedback (harus login)     |
+
+## Menjalankan Test
+
+```bash
+php artisan test --compact
+```
+
+---
+
 # Kriteria Penilaian & Rubrik Evaluasi
 
 ## Bobot Penilaian Tugas Mandiri
